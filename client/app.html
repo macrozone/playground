@@ -1,0 +1,14 @@
+<template name="layout">
+  {{yield}}
+</template>
+
+
+<template name="home">
+<h1>playground</h1>
+<ul>
+{{#each routes}}
+	<li><a href="{{path}}">{{name}}</a></li>
+{{/each}}
+</ul>
+</template>
+
