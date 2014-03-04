@@ -19,7 +19,7 @@ use underscored functions for better performance, as they do not initialize new 
 	class @Vector
 
 		constructor: (dimensionOrArray) ->
-			if _.isArray dimensionOrArray
+			if dimensionOrArray instanceof Array
 				@data = dimensionOrArray
 			else
 				@data = Array.apply(null, Array(dimensionOrArray)).map -> 0
@@ -31,7 +31,7 @@ use underscored functions for better performance, as they do not initialize new 
 		_add: (vector) ->
 			@checkDim vector
 			@data[i] += vector.data[i] for value, i in @data
-			@
+			@ # return itself for chaining
 				
 
 		sub: (vector) ->
@@ -41,14 +41,14 @@ use underscored functions for better performance, as they do not initialize new 
 		_sub: (vector) ->
 			@checkDim vector
 			@data[i] -= vector.data[i] for value, i in @data
-			@
+			@ # return itself for chaining
 
 		multi: (scale) ->
 			new Vector(value *= scale for value, i in @data)
 
 		_multi: (scale) ->
 			@data[i] *= scale for value, i in @data
-			@ 
+			@ # return itself for chaining
 
 		clone: ->
 			new Vector @data
