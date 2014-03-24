@@ -7,8 +7,8 @@
 
 		console.log @		
 
-		TIME_STEP = 1
-		STEPS_PER_FRAME = 1
+		TIME_STEP = 0.1
+		STEPS_PER_FRAME = 100
 
 
 
@@ -17,7 +17,7 @@
 				c: "green"
 				m: 5
 				x: new Vector [200,200] 
-				v: new Vector [0.1,0]
+				v: new Vector [0.1,-0.1]
 			)
 			(
 				c: "red"
@@ -29,7 +29,7 @@
 
 
 
-		sample2 = for i in [0..10]
+		sample2 = for i in [0..100]
 			x = _.random 200,400
 			y = _.random 200,400
 			vx = Math.random()-0.5
@@ -57,13 +57,13 @@
 				c: "green"
 				m: 0.1
 				x: new Vector [400,100] 
-				v: new Vector [0,1]
+				v: new Vector [0,0.7]
 			)
 			(
 				c: "blue"
 				m: 0.1
 				x: new Vector [100,200]
-				v: new Vector [0,2]
+				v: new Vector [0,4]
 			)
 			(
 				c: "red"

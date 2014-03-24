@@ -9,3 +9,6 @@ insecure
 preserve-inputs
 iron-router
 coffeescript
+bootstrap-3
+stylus
+showdown

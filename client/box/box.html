@@ -1,0 +1,46 @@
+<template name="boxes">
+<button class="btn btn-add-box">Add box</button>
+	<div class="boxcontainer container">
+	{{#each boxes}}
+		{{>box this}}
+	{{/each}}
+		
+	<div clas="clear"></div>
+	</div>
+</template>
+
+<template name="box">
+<div class="box col-sm-{{width}}" id="{{_id}}" draggable="true">
+<div class="controls">
+width: <select class="width">
+{{#each sizes}}
+<option 
+value="{{this}}" {{selectedWidth ../width}}>{{this}}</option>
+{{/each}}
+</select>			
+<button class="btn btn-xs btn-add-child">Add Child</button>
+<button class="btn btn-xs btn-add-sibling">Add Sibling</button>
+<button class="btn btn-xs btn-remove-box">Delete</button>
+</div>
+<div class="children">
+{{#each boxes}}
+		{{>box this}}
+		{{else}}
+		{{#with ..}}
+			{{{editableField 'content'}}}
+			
+			
+		{{/with}}
+{{/each}}
+</div>
+	
+
+
+
+</template>
+
+<template name="editableFieldTemplate">
+<textarea id="content_{{_id}}" class="editContent">{{content}}</textarea>
+<div class="renderedContent">{{#markdown}}{{{content}}}{{/markdown}}</div>
+
+</template>
